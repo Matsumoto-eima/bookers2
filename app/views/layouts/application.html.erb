@@ -12,23 +12,43 @@
 
   <body>
     <header>
-      <li>
-    <%= link_to '投稿フォーム', new_post_image_path %>
-  </li>
+      <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+        <a class="navbar-brand" href="/"><h4>Bookers</h4></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+   <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+
   <li>
-      <%= link_to 'マイページ', user_path(current_user.id) %>    </li>
-    <% if user_signed_in? %>
+      <%= link_to 'Home', user_path(current_user.id), class: "nav-link text-light" %> <i class="fa-solid fa-house" area-hidden="true">::before</i> </li>
+     <li>
+     <% if user_signed_in? %>
+    <%= link_to 'Users', index_users_path, class: "nav-link text-light" %> <i class="fa-sharp fa-solid fa-users" area-hidden="true">::before</i>
+  </li>
+<li>
+        <%= link_to "Books", index_books_path, class: "nav-link text-light" %><i class="fa-solid fa-book-open" area-hidden="true">::before</i>
+      </li>
+
       <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link text-light" %> <i class="fa-solid fa-right-from-bracket"  area-hidden="true">::before</i>
       </li>
     <% else %>
       <li>
-        <%= link_to "新規登録", new_user_registration_path %>
+        <%= link_to "About", "/homes/about", class: "nav-link text-light"%><i class="fa-solid fa-link" area-hidden="true">::before</i>
       </li>
       <li>
-        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "Sign up", new_user_registration_path, class: "nav-link text-light" %><i class="fa-solid fa-user-plus" area-hidden="true">::before</i>
+      </li>
+      <li>
+        <%= link_to "Log in", new_user_session_path, class: "nav-link text-light" %><i class="fa-solid fa-right-to-bracket" area-hidden="true">::before</i>
       </li>
     <% end %>
+    </ul>
+          </div>
+        </div>
+      </nav>
   </header>
     <%= yield %>
   </body>
