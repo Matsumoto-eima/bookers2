@@ -33,16 +33,16 @@
         <% end %>
       </li>
         <li>
-    <%#= link_to index_users_path, class: "nav-link text-light" do%>
+    <%= link_to users_path, class: "nav-link text-light" do%>
          <i class="fa-sharp fas fa-users" aria-hidden="true"></i> Users
-
+<% end %>
         </li>
         <li>
-        <%#= link_to index_books_path, class: "nav-link text-light" do%>
+        <%= link_to books_path, class: "nav-link text-light" do%>
         <i class="fas fa-book-open" aria-hidden="true"></i> Books
 
       </li>
-
+<% end %>
 
       <li>
         <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do%>
