@@ -6,7 +6,7 @@
       <%= image_tag @user.get_profile_image(100,100) %>
       <table class = "table">
         <tbody>
-      <% @user.each do |user| %>
+      <% @users.each do |user| %>
       <div class=text><td> <%= @user.name %> </td>
 <td> <%= @user.introduction %> </td></div>
 </tbody>
@@ -16,13 +16,13 @@
         <i class="fas fa-user-cog" aria-hidden="true"></i>
         <% end %>
 </div>
-
+<% end %>
 
 <h1>New Book</h1>
-<% if @book.errors.any? %>
-  <main><div class = "errors"><%= @book.errors.count %> errors prohibited this book from being saved:</div>
+<% if @book_new.errors.any? %>
+  <main><div class = "errors"><%= @book_new.errors.count %> errors prohibited this book from being saved:</div>
   <ul>
-    <% @book.errors.full_messages.each do |message| %>
+    <% @book_new.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul></main>

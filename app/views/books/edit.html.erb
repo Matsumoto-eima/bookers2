@@ -1,3 +1,6 @@
+<div>
+  <%= flash[:notice] %>
+</div>
 <p id = "notice"></p>
 <div class = "container">
   <div class = "row">
@@ -11,23 +14,25 @@
     <% end %>
   </ul></main>
 <% end %>
-      <%= form_with model: @user do |f| %>
+      <%= form_with model: @book do |f| %>
+      <div>
       <label for = "book_name">
-        Name
-      </label>
+        Title
+      </label><br>
       <%= f.text_field :title %><br>
+      </div>
       <label for = "opinion">
         Opinion
-      </label>
-      <%= f.area_field :body %><br>
-      <div class = "form-group">
-      <% f.submit "Update Book", class: 'btn btn-sm btn-success' %><br>
+      </label><br>
+      <%= f.text_area :body %><br>
 
+      <div class = "form-group">
+      <%= f.submit "Update Book", class: 'btn btn-sm btn-success' %><br>
       </div>
+<% end %>
       <span class = "link"><%= link_to "Show", book_path(@book.id) %></span>
 |
 <span class = "link"><%= link_to "Back", books_path %></span>
     </div>
   </div>
 </div>
-<% end %>

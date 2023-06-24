@@ -1,3 +1,6 @@
+<div>
+  <%= flash[:notice] %>
+</div>
 <p id = "notice"></p>
 <div class = "container">
   <div class = "row">
@@ -14,18 +17,18 @@
       <%= form_with model: @user do |f| %>
       <label for = "user_name">
         Name
-      </label>
+      </label><br>
       <%= f.text_field :name %><br>
       <label for = "image">
         Image
-      </label>
+      </label><br>
       <%= f.file_field :profile_image, placeholder: "profile_image", accept: "image/*" %><br>
       <label for = "user_introduction">
         Introduction
-      </label>
-      <%= f.area_field :introduction %><br>
-      <div class = "form-group">
-      <% f.submit "Update User", class: 'btn btn-sm btn-secondary' %>
+      </label><br>
+      <%= f.text_area :introduction %><br>
+      <div class="actions mt-3 text-center">
+      <%= f.submit "Update User", class: 'btn btn-sm btn-secondary' %>
       </div>
     </div>
   </div>
