@@ -8,7 +8,8 @@ class BooksController < ApplicationController
     redirect_to book_path(@book_new.id)
   else
      @books = Book.all
-    render :index
+     @user = current_user
+     render :index
 
   end
 end
@@ -35,9 +36,9 @@ end
   end
 
   def index
-     @books = Book.all
-     @book.user == current_user
+      @books = Book.all
       @book_new = Book.new
+      @user = current_user
   end
 
   def show
