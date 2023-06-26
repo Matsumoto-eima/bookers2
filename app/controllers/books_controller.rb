@@ -55,7 +55,7 @@ end
    private
 
   def book_params
-    params.require(:book).permit(:title, :image, :body)
+    params.require(:book).permit(:title, :body, :image)
   end
 
 end
